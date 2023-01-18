@@ -11,7 +11,7 @@ from urllib.request import urlopen
 import json
 
 #Data Loading
-df = pd.read_csv('/Users/mmontgomery/Documents/Louisiana Progress Fellowship/Crim Fines and Fees/final3.csv',index_col=False,usecols=['Organizations','P1','P2','Total_Annual','Flow','Disbursement_Type','Parish','Source'])
+df = pd.read_csv('final3.csv',index_col=False,usecols=['Organizations','P1','P2','Total_Annual','Flow','Disbursement_Type','Parish','Source'])
 working = df.copy()
 totals = {}
 tots = pd.DataFrame(df.groupby(['Parish'],as_index = False,)['Total_Annual'].sum(),columns=['Parish','Total_Annual'])
