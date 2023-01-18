@@ -10,8 +10,9 @@ import itertools
 from urllib.request import urlopen
 import json
 
+
 #Data Loading
-df = pd.read_csv('final3.csv',index_col=False,usecols=['Organizations','P1','P2','Total_Annual','Flow','Disbursement_Type','Parish','Source'])
+df = pd.read_csv('https://github.com/CappucciNOPE/la_fines_and_fees/blob/e85e2a10df4a6cf62a8308088e9cc3707b0e0f34/final3.csv',index_col=False,usecols=['Organizations','P1','P2','Total_Annual','Flow','Disbursement_Type','Parish','Source'])
 working = df.copy()
 totals = {}
 tots = pd.DataFrame(df.groupby(['Parish'],as_index = False,)['Total_Annual'].sum(),columns=['Parish','Total_Annual'])
