@@ -13,7 +13,7 @@ import json
 
 #Data Loading
 #df = pd.read_csv('https://github.com/CappucciNOPE/la_fines_and_fees/blob/e85e2a10df4a6cf62a8308088e9cc3707b0e0f34/final3.csv',index_col=False, usecols=['Organizations','Organization','Source','P2','P2','Total_Annual','Flow','Disbursement_Type','Parish','Type','Source_Type','Receiving','Year'])
-df = pd.read_csv('https://raw.githubusercontent.com/CappucciNOPE/la_fines_and_fees/master/final3.csv',index_col=False, usecols=['Organizations','Organization','Source','P2','P2','Total_Annual','Flow','Disbursement_Type','Parish','Type','Source_Type','Receiving','Year'])
+df = pd.read_csv(r'https://raw.githubusercontent.com/CappucciNOPE/la_fines_and_fees/master/final3.csv',index_col=False, usecols=['Organizations','Organization','Source','P2','P2','Total_Annual','Flow','Disbursement_Type','Parish','Type','Source_Type','Receiving','Year'])
 
 working = df.copy()
 totals = {}
