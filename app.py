@@ -131,7 +131,7 @@ def change_data(values1,tab,flow_switch,src,quanti):
 
 def render_content(tab,data,flow_switch,quanti):
     ret_graph = None
-    w = pd.DataFrame.from_dict(data,orient='records')
+    w = pd.DataFrame.from_records(data)
     if tab == 'hist':
         w = pd.DataFrame(w.groupby(['Parish','Flow','Disbursement_Type'],as_index = False)['Total_Annual'].sum(),columns=['Parish','Flow','Disbursement_Type','Total_Annual'])
         ret_graph = px.histogram(w,x='Parish',y="Total_Annual",color='Flow',barmode='group',
