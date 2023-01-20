@@ -13,7 +13,7 @@ import json
 
 #Data Loading
 #df = pd.read_csv('https://github.com/CappucciNOPE/la_fines_and_fees/blob/e85e2a10df4a6cf62a8308088e9cc3707b0e0f34/final3.csv',index_col=False, usecols=['Organizations','Organization','Source','P2','P2','Total_Annual','Flow','Disbursement_Type','Parish','Type','Source_Type','Receiving','Year'])
-df = pd.read_csv('https://raw.githubusercontent.com/CappucciNOPE/la_fines_and_fees/master/final3.csv',index_col=False, usecols=['Organizations','Organization','Source','P2','P2','Total_Annual','Flow','Disbursement_Type','Parish','Type','Source_Type','Receiving','Year'])
+df = pd.read_csv(r'https://raw.githubusercontent.com/CappucciNOPE/la_fines_and_fees/master/final3.csv',index_col=False, usecols=['Organizations','Organization','Source','P2','P2','Total_Annual','Flow','Disbursement_Type','Parish','Type','Source_Type','Receiving','Year'])
 
 working = df.copy()
 totals = {}
@@ -111,27 +111,27 @@ def change_data(values1,tab,flow_switch,src,quanti):
     if src != 'All':
         w = w.loc[w['Source']==src]
     if 'all' in values1:
-        filtered = w.copy().to_dict(orient='tight')
+        filtered = w.copy().to_dict(orient='records')
         #print(filtered)
         fig = render_content(tab,filtered,flow_switch,quanti)
         return 'Data shown for all parishes',filtered,fig,f_hide,c_hide
     else:
         if src == 'All':
             w = w.loc[w["Parish"].isin(values1)]
-            filtered = w.to_dict(orient='tight')
+            filtered = w.to_dict(orient='records')
             #print(filtered)
             fig = render_content(tab,filtered,flow_switch,quanti)
             return 'Data shown for the following parishes: {}'.format(values1),filtered,fig,f_hide,c_hide
         else:
             w = w.loc[w["Parish"].isin(values1)]
-            filtered = w.to_dict(orient='tight')
+            filtered = w.to_dict(orient='records')
             #print(filtered)
             fig = render_content(tab,filtered,flow_switch,quanti)
             return 'Data shown for the following parishes: {}'.format(values1),filtered,fig,f_hide,c_hide
 
 def render_content(tab,data,flow_switch,quanti):
     ret_graph = None
-    w = pd.DataFrame.from_dict(data,orient='tight')
+    w = pd.DataFrame.from_dict(data,orient='records')
     if tab == 'hist':
         w = pd.DataFrame(w.groupby(['Parish','Flow','Disbursement_Type'],as_index = False)['Total_Annual'].sum(),columns=['Parish','Flow','Disbursement_Type','Total_Annual'])
         ret_graph = px.histogram(w,x='Parish',y="Total_Annual",color='Flow',barmode='group',
