@@ -7,7 +7,6 @@ from dash import Dash, html, dcc, Input, Output
 import os, sys
 import signal
 import itertools
-import matplotlib as plt
 
 #This is for the map - separate
 from urllib.request import urlopen
