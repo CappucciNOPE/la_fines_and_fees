@@ -7,7 +7,7 @@ import os, sys
 import signal
 import itertools
 
-df = pd.read_csv('/Users/mmontgomery/fines_and_fees/final3.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/CappucciNOPE/la_fines_and_fees/main/final3.csv')
 dash.register_page(__name__, path='/')
 
 layout = html.Div([
