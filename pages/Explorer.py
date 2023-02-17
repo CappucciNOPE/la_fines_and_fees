@@ -7,7 +7,6 @@ from dash import Dash, html, dcc, Input, Output, callback
 import os, sys
 import signal
 import itertools
-import networkx as nx
 import matplotlib as plt
 
 df = pd.read_csv('/Users/mmontgomery/fines_and_fees/final3.csv')
