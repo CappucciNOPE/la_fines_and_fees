@@ -22,7 +22,7 @@ layout = html.Div([
 
     html.Div(children=[
         dcc.RadioItems(options=['Receiving','Source'],value='Receiving',id='ordering'),
-        dcc.Dropdown(options=parishes,multi=True,value=['ascension'],id='parish_slct'),
+        dcc.Dropdown(options=parishes,multi=True,value=['ascension'],id='parish_slct',style={"color":"#053F5C"}),
         
         
         dcc.Graph(id='content_ice',figure={})])

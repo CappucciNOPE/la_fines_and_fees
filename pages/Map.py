@@ -54,13 +54,13 @@ layout = html.Div([
 
     html.Div(children=[
         '1. Select the field that you would like search for plot values within',
-        dcc.Dropdown(options=['Total_Annual','Flow','Source_Type','Receiving_Type'],value='Total_Annual',id='broad cat',disabled=False),
+        dcc.Dropdown(options=['Total_Annual','Flow','Source_Type','Receiving_Type'],value='Total_Annual',id='broad cat',disabled=False,style={'color':"#053F5C"}),
         '2. Select the value that you would like to plot (Disabled for Total Annual)',
-        dcc.Dropdown(multi=False,id='sel_val',disabled=False),
+        dcc.Dropdown(multi=False,id='sel_val',disabled=False,style={'color':"#053F5C"}),
         '3. Select measurement',
-        dcc.Dropdown(options=['Percent','Total'],value='Percent',id='meas'),
+        dcc.Dropdown(options=['Percent','Total'],value='Percent',id='meas',style={'color':"#053F5C"}),
         '3b. If you selected \'Percent\', select the value for which you would like the value to be expressed as a percentage of (Disabled for Total Annual).',
-        dcc.Dropdown(options={'more':'Incoming Flows','less':'Disbursements','all':'All','gnp':'Disbursements to governments & nonprofits','i3p':'Disbursements to individuals/3rd party collection or processing agencies','coll':'Amounts retained by collection agency',"None":"None"},value='all',id='whole',disabled=False),
+        dcc.Dropdown(options={'more':'Incoming Flows','less':'Disbursements','all':'All','gnp':'Disbursements to governments & nonprofits','i3p':'Disbursements to individuals/3rd party collection or processing agencies','coll':'Amounts retained by collection agency',"None":"None"},value='all',id='whole',disabled=False,style={'color':"#053F5C"}),
 
         
         dcc.Graph(id='content_map',figure={}),
